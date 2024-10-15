@@ -17,6 +17,8 @@ typedef struct lista {
     int tamanho;
     Elem* final;
 }Lista;
+Lista* lista;
+
 void main() {
 
 }
