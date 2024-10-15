@@ -12,6 +12,11 @@ typedef struct elemento {
     struct elementos* prox;
 }Elem;
 
-int main() {
+typedef struct lista {
+    Elem* inicio;
+    int tamanho;
+    Elem* final;
+}Lista;
+void main() {
 
 }
