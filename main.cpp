@@ -10,7 +10,7 @@ typedef struct elemento {
     struct elemento *ant;
     Dados cadastro;
     struct elementos* prox;
-}Elemento;
+}Elem;
 
 int main() {
 
