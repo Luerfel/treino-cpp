@@ -27,6 +27,9 @@ int inserir(Descritor* descritor, dados d);
 void listarInicio(Descritor* l);
 void listarFim(Descritor* l);
 
+// Variável global
+Descritor* lista;
+
 int main() {
     int valor;
     dados vl;
