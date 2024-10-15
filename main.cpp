@@ -19,10 +19,10 @@ typedef struct lista {
 }Lista;
 Lista* lista;
 //Prototipos das funções
-Lista* criar(void);
+Lista* criar();
 void main() {
 
 }
-Lista* criar(void){
+Lista* criar(){
 
 }
