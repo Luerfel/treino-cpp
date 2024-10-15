@@ -18,7 +18,11 @@ typedef struct lista {
     Elem* final;
 }Lista;
 Lista* lista;
-
+//Prototipos das funções
+Lista* criar(void);
 void main() {
+
+}
+Lista* criar(void){
 
 }
