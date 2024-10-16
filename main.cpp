@@ -13,7 +13,7 @@ typedef struct elemento {
     dados cadastro;
     struct elemento* prox;
 } Elem;
-// aaaaaaaaaaaaa
+
 // Definindo o descritor da lista
 typedef struct Descritor {
     Elem* inicio;
