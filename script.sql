@@ -1,33 +1,3 @@
-CREATE TABLE estado(
-id int identity(1,1),
-sigla char(2) NOT NULL,
-nome varchar(30) NOT NULL,
-CONSTRAINT pk_estado PRIMARY KEY (id)
-);
-CREATE TABLE cidade(
-id int identity(1,1),
-nome varchar(30) NOT NULL,
-idEstado int NOT NULL,
-CONSTRAINT pk_cidade PRIMARY KEY (id),
-CONSTRAINT fk_cidade FOREIGN KEY (idEstado) REFERENCES estado(id)
-);
-
-CREATE TABLE tipologradouro(
-idTipoLogradouro varchar(3) NOT NULL,
-tipo varchar(30) NOT NULL,
-CONSTRAINT pk_tipologradouro PRIMARY KEY (idTipoLogradouro)
-);
-
-CREATE TABLE endereco(
-idEndereco int identity(1,1),
-CEP int NOT NULL,
-idCidade int NOT NULL,
-idTipoLogradouro varchar(3) NOT NULL,
-CONSTRAINT pk_endereco PRIMARY KEY (idEndereco),
-CONSTRAINT fk_endereco FOREIGN KEY (idCidade) REFERENCES cidade(id),
-CONSTRAINT fk2_endereco FOREIGN KEY (idTipoLogradouro) REFERENCES tipologradouro(idTipoLogradouro)
-);
-
 CREATE TABLE pessoa(
 nome varchar(100) NOT NULL,
 email varchar(100) NOT NULL,
