@@ -29,11 +29,11 @@ Descritor* criar();
 Descritor* lista;
 
 int main() {
-cout << "Hello, World" << endl;
+cout << "Hello, Worlad" << endl;
 return 1;
 
 }
 Descritor* criar(){
     Descritor* descritor;
-    return descritor
+    return descritor;
 }
