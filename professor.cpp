@@ -1,5 +1,6 @@
 #include <iostream>
-#include <string>
+#include <cstring>
+
 
 struct dados
 {
@@ -108,15 +109,15 @@ void main()
 
     lista = criar();
 
-    strcpy_s(vl.nome, "JUVENAL");
+    strcpy(vl.nome, "JUVENAL");
     vl.idade = 10;
     inserir(lista, vl);
     
-    strcpy_s(vl.nome, "ANTENOR");
+    strcpy(vl.nome, "ANTENOR");
     vl.idade = 20;
     inserir(lista, vl);
 
-    strcpy_s(vl.nome, "PANTURRILHA");
+    strcpy(vl.nome, "PANTURRILHA");
     vl.idade = 30;
     inserir(lista, vl);
 
