@@ -34,6 +34,9 @@ return 1;
 
 }
 Descritor* criar(){
-    Descritor* descritor;
+    Descritor* descritor = (Descritor*)malloc(sizeof(Descritor));
+    descritor -> inicio = NULL;
+    descritor -> final = NULL;
+    descritor -> tamanho = 0;
     return descritor;
 }
