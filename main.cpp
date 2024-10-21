@@ -29,6 +29,22 @@ Descritor* criar();
 
 int main() {
 Descritor * lista = criar();
+int opcao;
+cout << "escolha uma opçao:\n1.Imprimir Lista \n";
+cin >> opcao;
+
+switch (opcao){
+    case 1:
+        cout << "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk";
+        break;
+    case 2:
+        cout << "ola mundo";
+        break;
+    default:
+    cout << "aa";
+    break;
+}
+
 return 1;
 
 }
