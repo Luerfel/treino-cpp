@@ -25,14 +25,14 @@ typedef struct Descritor {
 // Protótipos das funções
 Descritor* criar();
 
-// Variável global
-Descritor* lista;
 
 int main() {
-cout << "Hello, Worlad" << endl;
+Descritor * lista = criar();
 return 1;
 
 }
+
+// criar o descritor
 Descritor* criar(){
     Descritor* descritor = (Descritor*)malloc(sizeof(Descritor));
     descritor -> inicio = NULL;
