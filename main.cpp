@@ -3,7 +3,8 @@
 #include <cstdlib>  // Para malloc e free
 
 using namespace std;
-// Usando typedef diretamente na definição das estruturas
+
+// Estruturas
 typedef struct dados {
     char nome[50];
     int idade;
@@ -33,10 +34,11 @@ return 1;
 }
 
 // criar o descritor
-Descritor* criar(){
+Descritor* criar()
+{
     Descritor* descritor = (Descritor*)malloc(sizeof(Descritor));
-    descritor -> inicio = NULL;
-    descritor -> final = NULL;
-    descritor -> tamanho = 0;
+    descritor->inicio = NULL;
+    descritor->final = NULL;
+    descritor->tamanho = 0;
     return descritor;
 }
