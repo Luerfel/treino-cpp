@@ -2,6 +2,7 @@
 #include <cstring>  // Para usar strcpy e strcmp
 #include <cstdlib>  // Para malloc e free
 
+using namespace std;
 // Usando typedef diretamente na definição das estruturas
 typedef struct dados {
     char nome[50];
@@ -27,9 +28,12 @@ Descritor* criar();
 // Variável global
 Descritor* lista;
 
-void main() {
-
-
+int main() {
+cout << "Hello, World" << endl;
+return 1;
 
 }
-
+Descritor* criar(){
+    Descritor* descritor;
+    return descritor
+}
