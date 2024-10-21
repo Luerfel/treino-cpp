@@ -35,10 +35,10 @@ cin >> opcao;
 
 switch (opcao){
     case 1:
-        cout << "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk";
+        cout << "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk" << endl;
         break;
     case 2:
-        cout << "ola mundo";
+        cout << "ola mundo" <<endl;
         break;
     default:
     cout << "aa";
