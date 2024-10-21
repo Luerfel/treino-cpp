@@ -60,8 +60,8 @@ int inserir(Descritor* descritor, dados d)
     }
     else
      {
-        descritor->final->prox = novo;
         novo->ant = descritor->final;
+        descritor->final->prox = novo;
         descritor->final = novo;
         }
 
@@ -102,7 +102,7 @@ void listarFim(Descritor* l)
     }
 }
 
-void main()
+int main()
 {
     int valor;
     dados vl;
@@ -129,5 +129,5 @@ void main()
     listarFim(lista);
 
     std::cout << "\nFIM";
-
+return 1;
 }
