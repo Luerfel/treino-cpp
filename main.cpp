@@ -30,7 +30,8 @@ Descritor* criar();
 int main() {
 Descritor * lista = criar();
 int opcao;
-cout << "escolha uma opçao:\n1.Imprimir Lista \n";
+cout << "escolha uma opçao:\n1.Imprimir Lista \n" << endl;
+cout << "Digita a opção: ";
 cin >> opcao;
 
 switch (opcao){
