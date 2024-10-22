@@ -108,13 +108,22 @@ Dados Ler_cadastro(){
 
     cout << "digite a Cidade de Destino";
     cin.getline(novo.cidade_destino,50);
+
+    cout << "Digite o Tempo Percorrido: ";
+    cin >> novo.tempo_percorrido;
+
+    cout << "Digite a Distancia Percorrida";
+    cin >> novo.distancia;
+
+    cout << "Digite o tipo de combustivel";
+    cin.getline(novo.tipo_combustivel,50);
+
+    cout << "Digite a quantidade de combustivel consumido";
+    cin >> novo.combustivel_consumido;
+
+    return novo;
 }
-   // char nome[50];
-   // char marca[50];
-   // char modelo[50];
-   // char cidade_partida[50];
-   // char cidade_destino[50];
-   // int tempo_percorrido;
-   // float distancia;
+
+
   //  char tipo_combustivel[50];
    // float combustivel_consumido;
