@@ -31,11 +31,11 @@ typedef struct Descritor {
 } Descritor;
 
 // Protótipos das funções
-Descritor* criar();
+Descritor* criar_descritor();
 
 
 int main() {
-Descritor * descritor = criar();
+Descritor * descritor = criar_descritor();
 int opcao;
 int flag = 1;// uso no controle do while
 
@@ -67,7 +67,7 @@ return 1;
 }
 
 // criar o descritor
-Descritor* criar()
+Descritor* criar_descritor()
 {
     Descritor* descritor = (Descritor*)malloc(sizeof(Descritor));
     descritor->inicio = NULL;
