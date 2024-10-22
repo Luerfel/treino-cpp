@@ -35,10 +35,10 @@ Descritor* criar_descritor();
 
 
 int main() {
-Descritor * descritor = criar_descritor();
+Descritor * descritor= criar_descritor();
 int opcao;
 int flag = 1;// uso no controle do while
-
+cout << descritor->inicio;
 cout << "escolha uma opçao:\n1.Cadastro\n2.Consultar\n3.Deletar\n4.Listar Dados\n5.Cálculo do consumo dos percursos." << endl;
 cout << "Digita a opção: ";
 cin >> opcao;
@@ -46,14 +46,20 @@ while(flag == 1){
     switch (opcao){
         case 1:
             cout << "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk" << endl;
+            opcao = 0;
             break;
         case 2:
             cout << "ola mundo" <<endl;
+            opcao = 0;
             break;
         case 3:
             cout << "Ola mundo zé" <<endl;
+            opcao = 0;
+            break;
         case 4:
-            cout << "sexo" << endl;
+            cout << "sexo" <<endl;
+            opcao = 0;
+            break;
         case 5:
             flag = 0;
             break;
