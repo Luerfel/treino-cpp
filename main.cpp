@@ -33,6 +33,7 @@ typedef struct Descritor {
 // Protótipos das funções
 Descritor* criar_descritor();
 void cadastrar(Descritor* descritor);
+Dados ler_cadastro();
 
 int main() {
 Descritor * descritor= criar_descritor();
@@ -83,6 +84,7 @@ Descritor* criar_descritor()
 }
 void cadastrar(Descritor* descritor)
 {
+    Elem * novo = (Elem*)malloc(sizeof(Elem));
 
     //caso a lista estiver vazia
     if(descritor->inicio == NULL){
@@ -90,3 +92,29 @@ void cadastrar(Descritor* descritor)
     }
 
 }
+Dados Ler_cadastro(){
+    Dados novo;
+    cout << "Digite o nome completo: ";
+    cin.getline(novo.nome,50);
+
+    cout << "Digite a Marca: ";
+    cin.getline(novo.marca,50);
+
+    cout<< "Digite o Modelo: ";
+    cin.getline(novo.modelo,50);
+
+    cout <<"Digite a Cidade de Partida: ";
+    cin.getline(novo.cidade_partida,50);
+
+    cout << "digite a Cidade de Destino";
+    cin.getline(novo.cidade_destino,50);
+}
+   // char nome[50];
+   // char marca[50];
+   // char modelo[50];
+   // char cidade_partida[50];
+   // char cidade_destino[50];
+   // int tempo_percorrido;
+   // float distancia;
+  //  char tipo_combustivel[50];
+   // float combustivel_consumido;
