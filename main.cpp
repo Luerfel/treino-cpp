@@ -35,11 +35,11 @@ Descritor* criar();
 
 
 int main() {
-Descritor * lista = criar();
+Descritor * descritor = criar();
 int opcao;
 int flag = 1;// uso no controle do while
 
-cout << "escolha uma opçao:\n1.Imprimir Lista\n2.inserir um novo dado\n3.Deletar um dado\n4.Consultar por nome" << endl;
+cout << "escolha uma opçao:\n1.Cadastro\n2.Consultar\n3.Deletar\n4.Listar Dados\n5.Cálculo do consumo dos percursos." << endl;
 cout << "Digita a opção: ";
 cin >> opcao;
 while(flag == 1){
