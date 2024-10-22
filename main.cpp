@@ -32,7 +32,7 @@ typedef struct Descritor {
 
 // Protótipos das funções
 Descritor* criar_descritor();
-
+Dados cadastrar(Descritor* descritor);
 
 int main() {
 Descritor * descritor= criar_descritor();
@@ -80,4 +80,7 @@ Descritor* criar_descritor()
     descritor->final = NULL;
     descritor->tamanho = 0;
     return descritor;
+}
+Dados cadastrar(Descritor* descritor){
+
 }
