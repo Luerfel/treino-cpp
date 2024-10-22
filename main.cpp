@@ -7,12 +7,19 @@ using namespace std;
 // Estruturas
 typedef struct dados {
     char nome[50];
-    int idade;
-} dados;
+    char marca[50];
+    char modelo[50];
+    char cidade_partida[50];
+    char cidade_destino[50];
+    int tempo_percorrido;
+    float distancia;
+    char tipo_combustivel[50];
+    float combustivel_consumido;
+} Dados;
 
 typedef struct elemento {
     struct elemento* ant;
-    dados cadastro;
+    Dados cadastro;
     struct elemento* prox;
 } Elem;
 
@@ -30,21 +37,30 @@ Descritor* criar();
 int main() {
 Descritor * lista = criar();
 int opcao;
-cout << "escolha uma opçao:\n1.Imprimir Lista \n" << endl;
+int flag = 1;// uso no controle do while
+
+cout << "escolha uma opçao:\n1.Imprimir Lista\n2.inserir um novo dado\n3.Deletar um dado\n4.Consultar por nome" << endl;
 cout << "Digita a opção: ";
 cin >> opcao;
-
-switch (opcao){
-    case 1:
-        cout << "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk" << endl;
+while(flag == 1){
+    switch (opcao){
+        case 1:
+            cout << "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk" << endl;
+            break;
+        case 2:
+            cout << "ola mundo" <<endl;
+            break;
+        case 3:
+            cout << "Ola mundo zé" <<endl;
+        case 4:
+            cout << "sexo" << endl;
+        case 5:
+            flag = 0;
+            break;
+        default:
+        cout << "Opção invalida zé";
         break;
-    case 2:
-        cout << "ola mundo" <<endl;
-        break;
-    default:
-    cout << "aa";
-    break;
-}
+} }
 
 return 1;
 
