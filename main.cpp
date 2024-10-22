@@ -1,16 +1,25 @@
 #include <iostream>
-#include <cstring>  // Para usar strcpy
+#include <cstring>  // Para usar strcpy e strcmp
 #include <cstdlib>  // Para malloc e free
 
-// Usando typedef diretamente na definição das estruturas
+using namespace std;
+
+// Estruturas
 typedef struct dados {
     char nome[50];
-    int idade;
-} dados;
+    char marca[50];
+    char modelo[50];
+    char cidade_partida[50];
+    char cidade_destino[50];
+    int tempo_percorrido;
+    float distancia;
+    char tipo_combustivel[50];
+    float combustivel_consumido;
+} Dados;
 
 typedef struct elemento {
     struct elemento* ant;
-    dados cadastro;
+    Dados cadastro;
     struct elemento* prox;
 } Elem;
 
@@ -23,102 +32,46 @@ typedef struct Descritor {
 
 // Protótipos das funções
 Descritor* criar();
-int inserir(Descritor* descritor, dados d);
-void listarInicio(Descritor* l);
-void listarFim(Descritor* l);
 
-// Variável global
-Descritor* lista;
 
 int main() {
-    int valor;
-    dados vl;
+Descritor * descritor = criar();
+int opcao;
+int flag = 1;// uso no controle do while
 
-    lista = criar();
+cout << "escolha uma opçao:\n1.Cadastro\n2.Consultar\n3.Deletar\n4.Listar Dados\n5.Cálculo do consumo dos percursos." << endl;
+cout << "Digita a opção: ";
+cin >> opcao;
+while(flag == 1){
+    switch (opcao){
+        case 1:
+            cout << "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk" << endl;
+            break;
+        case 2:
+            cout << "ola mundo" <<endl;
+            break;
+        case 3:
+            cout << "Ola mundo zé" <<endl;
+        case 4:
+            cout << "sexo" << endl;
+        case 5:
+            flag = 0;
+            break;
+        default:
+        cout << "Opção invalida zé";
+        break;
+} }
 
-    strcpy(vl.nome, "JUVENAL");
-    vl.idade = 10;
-    inserir(lista, vl);
+return 1;
 
-    strcpy(vl.nome, "ANTENOR");
-    vl.idade = 20;
-    inserir(lista, vl);
-
-    strcpy(vl.nome, "PANTURRILHA");
-    vl.idade = 30;
-    inserir(lista, vl);
-
-    std::cout << "\nLISTAGEM DO INÍCIO DA LISTA ATÉ O FIM:\n";
-    listarInicio(lista);
-
-    std::cout << "\nLISTAGEM DO FIM DA LISTA ATÉ O INÍCIO:\n";
-    listarFim(lista);
-
-    std::cout << "\nFIM\n";
-
-    return 0;
 }
-Descritor* lista;
 
-// Função para criar a lista
-Descritor* criar() {
-    Descritor* descritor;
-    descritor = (Descritor*)malloc(sizeof(Descritor));
-    descritor->final = NULL;
+// criar o descritor
+Descritor* criar()
+{
+    Descritor* descritor = (Descritor*)malloc(sizeof(Descritor));
     descritor->inicio = NULL;
+    descritor->final = NULL;
     descritor->tamanho = 0;
-
     return descritor;
-}
-
-// Função para inserir um item na lista
-int inserir(Descritor* descritor, dados d) {
-    Elem* novo;
-    novo = (Elem*)malloc(sizeof(Elem));
-    novo->cadastro = d;
-    novo->ant = NULL;
-    novo->prox = NULL;
-
-    // Caso 1 - Lista vazia
-    if (descritor->tamanho == 0) {
-        descritor->inicio = novo;
-        descritor->final = novo;
-    } else {
-        descritor->final->prox = novo;
-        novo->ant = descritor->final;
-        descritor->final = novo;
-    }
-
-    (descritor->tamanho)++;
-    return 1;
-}
-
-// Função para listar do início ao fim
-void listarInicio(Descritor* l) {
-    Elem* pos;
-    int cont = 0;
-
-    pos = l->inicio;
-
-    while (cont < l->tamanho) {
-        std::cout << "NOME:  " << pos->cadastro.nome << "\n";
-        std::cout << "IDADE: " << pos->cadastro.idade << "\n";
-        pos = pos->prox;
-        cont++;
-    }
-}
-
-// Função para listar do fim ao início
-void listarFim(Descritor* l) {
-    Elem* pos;
-    int cont = 0;
-
-    pos = l->final;
-
-    while (cont < l->tamanho) {
-        std::cout << "NOME:  " << pos->cadastro.nome << "\n";
-        std::cout << "IDADE: " << pos->cadastro.idade << "\n";
-        pos = pos->ant;
-        cont++;
-    }
 }
