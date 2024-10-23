@@ -48,22 +48,17 @@ while(flag == 1){
     switch (opcao){
         case 1:
             cadastrar(descritor);
-            opcao = 0;
             break;
         case 2:
             cout << "ola mundo" <<endl;
-            opcao = 0;
             break;
         case 3:
             cout << "Ola mundo zé" <<endl;
-            opcao = 0;
             break;
         case 4:
             cout << "sexo" <<endl;
-            opcao = 0;
             break;
         case 5:
-            flag = 0;
             break;
         default:
         cout << "Opção invalida zé";
