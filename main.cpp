@@ -34,6 +34,7 @@ typedef struct Descritor {
 Descritor* criar_descritor();
 void cadastrar(Descritor* descritor);
 Dados ler_cadastro();
+void limpar_tela();
 
 int main() {
 Descritor * descritor= criar_descritor();
@@ -46,23 +47,19 @@ cin >> opcao;
 while(flag == 1){
     switch (opcao){
         case 1:
-            cout << "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk" << endl;
-            opcao = 0;
+            limpar_tela();
+            cadastrar(descritor);
             break;
         case 2:
             cout << "ola mundo" <<endl;
-            opcao = 0;
             break;
         case 3:
             cout << "Ola mundo zé" <<endl;
-            opcao = 0;
             break;
         case 4:
             cout << "sexo" <<endl;
-            opcao = 0;
             break;
         case 5:
-            flag = 0;
             break;
         default:
         cout << "Opção invalida zé";
@@ -86,14 +83,24 @@ void cadastrar(Descritor* descritor)
 {
     Elem * novo = (Elem*)malloc(sizeof(Elem));
     novo->cadastro = ler_cadastro();
+    novo->ant = NULL;
+    novo->prox = NULL;
 
     //caso a lista estiver vazia
     if(descritor->inicio == NULL){
-
+        descritor ->inicio = novo;
+        descritor ->final = novo;
     }
-
+    // caso a lista não tiver vazia insere no final.
+    else{
+        novo->ant = descritor->final;
+        descritor->final->prox = novo;
+        descritor->final = novo;
+    }
+    // aumenta o tamanho da lista
+    (descritor->tamanho)++;
 }
-Dados Ler_cadastro(){
+Dados ler_cadastro(){
     Dados novo;
     cout << "Digite o nome completo: ";
     cin.getline(novo.nome,50);
@@ -125,6 +132,10 @@ Dados Ler_cadastro(){
     return novo;
 }
 
-
-  //  char tipo_combustivel[50];
-   // float combustivel_consumido;
+void limpar_tela() {
+    #ifdef _WIN32
+        system("cls");   // Comando para limpar a tela no Windows
+    #else
+        system("clear"); // Comando para limpar a tela no Linux ou macOS
+    #endif
+}
