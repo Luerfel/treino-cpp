@@ -85,6 +85,7 @@ Descritor* criar_descritor()
 void cadastrar(Descritor* descritor)
 {
     Elem * novo = (Elem*)malloc(sizeof(Elem));
+    novo->cadastro = ler_cadastro();
 
     //caso a lista estiver vazia
     if(descritor->inicio == NULL){
