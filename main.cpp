@@ -11,7 +11,7 @@ typedef struct dados {
     char modelo[50];
     char cidade_partida[50];
     char cidade_destino[50];
-    int tempo_percorrido;
+    float tempo_percorrido;
     float distancia;
     char tipo_combustivel[50];
     float combustivel_consumido;
