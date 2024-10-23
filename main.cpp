@@ -95,7 +95,11 @@ void cadastrar(Descritor* descritor)
         descritor ->final = novo;
     }
     // caso a lista não tiver vazia
-    else if()
+    else{
+
+    }
+    // aumenta o tamanho da lista
+    (descritor->tamanho)++;
 }
 Dados Ler_cadastro(){
     Dados novo;
