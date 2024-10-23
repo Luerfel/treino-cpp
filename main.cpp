@@ -86,12 +86,16 @@ void cadastrar(Descritor* descritor)
 {
     Elem * novo = (Elem*)malloc(sizeof(Elem));
     novo->cadastro = ler_cadastro();
+    novo->ant = NULL;
+    novo->prox = NULL;
 
     //caso a lista estiver vazia
     if(descritor->inicio == NULL){
-
+        descritor ->inicio = novo;
+        descritor ->final = novo;
     }
-
+    // caso a lista não tiver vazia
+    else if()
 }
 Dados Ler_cadastro(){
     Dados novo;
