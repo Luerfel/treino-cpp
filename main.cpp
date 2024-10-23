@@ -47,6 +47,7 @@ cin >> opcao;
 while(flag == 1){
     switch (opcao){
         case 1:
+            limpar_tela();
             cadastrar(descritor);
             break;
         case 2:
