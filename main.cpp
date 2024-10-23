@@ -34,6 +34,7 @@ typedef struct Descritor {
 Descritor* criar_descritor();
 void cadastrar(Descritor* descritor);
 Dados ler_cadastro();
+void limpar_tela();
 
 int main() {
 Descritor * descritor= criar_descritor();
@@ -46,7 +47,7 @@ cin >> opcao;
 while(flag == 1){
     switch (opcao){
         case 1:
-            cout << "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk" << endl;
+            cadastrar(descritor);
             opcao = 0;
             break;
         case 2:
@@ -94,9 +95,11 @@ void cadastrar(Descritor* descritor)
         descritor ->inicio = novo;
         descritor ->final = novo;
     }
-    // caso a lista não tiver vazia
+    // caso a lista não tiver vazia insere no final.
     else{
-
+        novo->ant = descritor->final;
+        descritor->final->prox = novo;
+        descritor->final = novo;
     }
     // aumenta o tamanho da lista
     (descritor->tamanho)++;
@@ -133,6 +136,10 @@ Dados Ler_cadastro(){
     return novo;
 }
 
-
-  //  char tipo_combustivel[50];
-   // float combustivel_consumido;
+void limparTela() {
+    #ifdef _WIN32
+        system("cls");   // Comando para limpar a tela no Windows
+    #else
+        system("clear"); // Comando para limpar a tela no Linux ou macOS
+    #endif
+}
