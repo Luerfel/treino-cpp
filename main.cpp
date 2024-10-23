@@ -100,7 +100,7 @@ void cadastrar(Descritor* descritor)
     // aumenta o tamanho da lista
     (descritor->tamanho)++;
 }
-Dados Ler_cadastro(){
+Dados ler_cadastro(){
     Dados novo;
     cout << "Digite o nome completo: ";
     cin.getline(novo.nome,50);
@@ -132,7 +132,7 @@ Dados Ler_cadastro(){
     return novo;
 }
 
-void limparTela() {
+void limpar_tela() {
     #ifdef _WIN32
         system("cls");   // Comando para limpar a tela no Windows
     #else
