@@ -38,7 +38,7 @@ void limpar_tela();
 int menu();
 void listar_dados(Descritor* descritor);
 void imprimir_dados(Elem* aux);
-
+void pressionar_enter();
 int main() {
 Descritor * descritor= criar_descritor();
 int flag = 1;// uso no controle do while
@@ -169,8 +169,7 @@ void listar_dados(Descritor* descritor){
         cout << "Cadastro " << i+1 <<endl;
         imprimir_dados(aux);
 }
-    cout << "Pressione ENTER para continuar" << endl;
-    cin.get();
+    pressionar_enter();
     }
 
 
@@ -178,15 +177,18 @@ void listar_dados(Descritor* descritor){
 void consultar_nome(Descritor* descritor){
     Elem *aux = descritor->inicio;
     char nome_procurado[50];
-
+    int flag = 0; // para verificar se tem algum controle
     for (int i=0; i< descritor->tamanho; i++){
         if (strcmp(aux->cadastro.nome,nome_procurado) == 0){
             imprimir_dados(aux);
+            flag = 1;
+        }
     }
-
-
+    if(flag == 1){
+        cout << "Nome não encontrado na lista" << endl;
+    }
+    pressionar_enter();
 }
-
 void imprimir_dados(Elem *aux){
         cout << "Nome: " << aux->cadastro.nome << endl;
         cout << "Marca: " << aux->cadastro.marca << endl;
@@ -198,4 +200,8 @@ void imprimir_dados(Elem *aux){
         cout << "Tipo de Combustível: " << aux->cadastro.tipo_combustivel << endl;
         cout << "Combustível Consumido: " << aux->cadastro.combustivel_consumido << " litros" << endl;
         cout << "\n" << endl;
+}
+void pressionar_enter(){
+    cout << "Pressione ENTER para continuar" << endl;
+    cin.get();
 }
