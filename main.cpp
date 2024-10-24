@@ -121,7 +121,7 @@ Dados ler_cadastro(){
 
     cout << "Digite o tipo de combustivel";
     cin.getline(novo.tipo_combustivel,50);
-    cin.ignore();
+
     cout << "Digite o Tempo Percorrido: ";
     cin >> novo.tempo_percorrido;
 
@@ -131,6 +131,7 @@ Dados ler_cadastro(){
     cout << "Digite a quantidade de combustivel consumido";
     cin >> novo.combustivel_consumido;
     cin.ignore();
+
 
 
 
