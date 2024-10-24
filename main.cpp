@@ -175,9 +175,14 @@ void listar_dados(Descritor* descritor){
 
 
 
-void consultar_nome(){
+void consultar_nome(Descritor* descritor){
+    Elem *aux = descritor->inicio;
+    char nome_procurado[50];
 
-
+    for (int i=0; i< descritor->tamanho; i++){
+        if (strcmp(aux->cadastro.nome,nome_procurado == 0)){
+            
+    }
 
 }
 
