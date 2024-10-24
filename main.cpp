@@ -43,6 +43,7 @@ Descritor * descritor= criar_descritor();
 int flag = 1;// uso no controle do while
 
 while(flag == 1){
+    limpar_tela();
     int opcao = menu();
     switch (opcao){
         case 1:
@@ -55,7 +56,7 @@ while(flag == 1){
             cout << "Ola mundo zé" <<endl;
             break;
         case 4:
-            cout << "sexo" <<endl;
+            listar_dados(descritor);
             break;
         case 5:
             break;
@@ -156,6 +157,7 @@ int menu(){
 void listar_dados(Descritor* descritor){
     Elem *aux = descritor->inicio;
     for(int i = 0; i < descritor->tamanho;i++){
+        cout << "Cadastro " << i+1 <<endl;
         cout << "Nome: " << aux->cadastro.nome << endl;
         cout << "Marca: " << aux->cadastro.marca << endl;
         cout << "Modelo: " << aux->cadastro.modelo << endl;
@@ -165,7 +167,7 @@ void listar_dados(Descritor* descritor){
         cout << "Distância: " << aux->cadastro.distancia << " km" << endl;
         cout << "Tipo de Combustível: " << aux->cadastro.tipo_combustivel << endl;
         cout << "Combustível Consumido: " << aux->cadastro.combustivel_consumido << " litros" << endl;
-        cout << "Pressione ENTER para continuar" << endl;
+        cout << "\n" << endl;
 }
     cout << "Pressione ENTER para continuar" << endl;
     cin.get();
