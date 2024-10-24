@@ -173,6 +173,7 @@ void listar_dados(Descritor* descritor){
     for(int i = 0; i < descritor->tamanho;i++){
         cout << "Cadastro " << i+1 <<endl;
         imprimir_dados(aux);
+        aux = aux -> prox;
 }
     pressionar_enter();
     }
@@ -181,6 +182,7 @@ void consultar_nome(Descritor* descritor){
     char nome_procurado[50];
     cout << "Digite o nome que você procura" << endl;
     cin.getline(nome_procurado,50);
+
     int flag = 0; // para verificar se tem algum controle
     for (int i=0; i< descritor->tamanho; i++){
         if (strcmp(aux->cadastro.nome,nome_procurado) == 0){
@@ -188,7 +190,7 @@ void consultar_nome(Descritor* descritor){
             flag = 1;
         }
     }
-    if(flag == 1){
+    if(flag == 0){
         cout << "Nome não encontrado na lista" << endl;
     }
     pressionar_enter();
@@ -207,8 +209,42 @@ void imprimir_dados(Elem *aux){
 }
 
 void deletar_dados(Descritor* descritor){
+    char nome_procurado[50];
     Elem *aux = descritor->inicio;
+    cout << "Digite o nome que você procura" << endl;
+    cin.getline(nome_procurado,50);
+    int flag = 0; // para verificar se tem algum controle
 
+    for (int i=0; i< descritor->tamanho; i++){
+        if (strcmp(aux->cadastro.nome,nome_procurado) == 0){
+            flag = 1;
+            break;
+        }
+        aux = aux->prox;
+    }
+    
+    if(flag == 1){
+        // caso seja o primeiro elemento
+        if(descritor->inicio == aux){
+            descritor -> inicio = aux->prox;
+        }
+        //caso seja o ultimo elemento  
+        if(descritor->final == aux){
+            descritor ->final = aux->ant;
+        }
+        // caso esteja no meio 
+        else {
+            aux->ant->prox = aux->prox;
+            aux->prox->ant = aux->ant;
+        }
+        free(aux);
+        cout << "Dados deletados com sucesso."
+    }
+    else{
+        cout << "Dado não encontrado" <<endl;
+    }
+
+    pressionar_enter();
 }
 void pressionar_enter(){
     cout << "Pressione ENTER para continuar" << endl;
