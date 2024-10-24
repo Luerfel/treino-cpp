@@ -37,7 +37,7 @@ Dados ler_cadastro();
 void limpar_tela();
 int menu();
 void listar_dados(Descritor* descritor);
-
+void imprimir_dados(Elem* aux);
 int main() {
 Descritor * descritor= criar_descritor();
 int flag = 1;// uso no controle do while
@@ -147,7 +147,9 @@ void limpar_tela() {
 
 int menu(){
     int opcao;
-    cout << "escolha uma opçao:\n1.Cadastro\n2.Consultar\n3.Deletar\n4.Listar Dados\n5.Cálculo do consumo dos percursos." << endl;
+    cout << "escolha uma opçao:\n1.Cadastro\n2.Consultar\n3.Deletar" << endl;
+    cout << "4.Listar Dados\n5.Cálculo do consumo dos percursos.\n6.Listar o menor consumo" << endl;
+    cout << "\n7.Listar o maior consumo\n8.Sair" << endl;
     cout << "Digita a opção: ";
     cin >> opcao;
     cin.ignore();
@@ -158,6 +160,13 @@ void listar_dados(Descritor* descritor){
     Elem *aux = descritor->inicio;
     for(int i = 0; i < descritor->tamanho;i++){
         cout << "Cadastro " << i+1 <<endl;
+        imprimir_dados(aux);
+}
+    cout << "Pressione ENTER para continuar" << endl;
+    cin.get();
+    }
+
+void imprimir_dados(Elem *aux){
         cout << "Nome: " << aux->cadastro.nome << endl;
         cout << "Marca: " << aux->cadastro.marca << endl;
         cout << "Modelo: " << aux->cadastro.modelo << endl;
@@ -169,7 +178,3 @@ void listar_dados(Descritor* descritor){
         cout << "Combustível Consumido: " << aux->cadastro.combustivel_consumido << " litros" << endl;
         cout << "\n" << endl;
 }
-    cout << "Pressione ENTER para continuar" << endl;
-    cin.get();
-    }
-
