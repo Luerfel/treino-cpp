@@ -35,22 +35,18 @@ Descritor* criar_descritor();
 void cadastrar(Descritor* descritor);
 Dados ler_cadastro();
 void limpar_tela();
+int menu();
+void listar_dados();
 
 int main() {
 Descritor * descritor= criar_descritor();
-int opcao;
 int flag = 1;// uso no controle do while
-cout << descritor->inicio;
-cout << "escolha uma opçao:\n1.Cadastro\n2.Consultar\n3.Deletar\n4.Listar Dados\n5.Cálculo do consumo dos percursos." << endl;
-cout << "Digita a opção: ";
-cin >> opcao;
-cin.ignore();
+
 while(flag == 1){
+    int opcao = menu();
     switch (opcao){
         case 1:
-            limpar_tela();
             cadastrar(descritor);
-            cout << descritor->inicio->cadastro.nome;
             break;
         case 2:
             cout << "ola mundo" <<endl;
@@ -64,7 +60,7 @@ while(flag == 1){
         case 5:
             break;
         default:
-        cout << "Opção invalida zé";
+            cout << "Opção invalida zé";
         break;
 } }
 
@@ -105,6 +101,7 @@ void cadastrar(Descritor* descritor)
 Dados ler_cadastro(){
     Dados novo;
     cout << "Digite o nome completo: ";
+
     cin.getline(novo.nome,50);
 
     cout << "Digite a Marca: ";
@@ -116,21 +113,21 @@ Dados ler_cadastro(){
     cout <<"Digite a Cidade de Partida: ";
     cin.getline(novo.cidade_partida,50);
 
-    cout << "digite a Cidade de Destino";
+    cout << "digite a Cidade de Destino: ";
     cin.getline(novo.cidade_destino,50);
 
-    cout << "Digite o tipo de combustivel";
+    cout << "Digite o tipo de combustivel: ";
     cin.getline(novo.tipo_combustivel,50);
 
     cout << "Digite o Tempo Percorrido: ";
     cin >> novo.tempo_percorrido;
 
-    cout << "Digite a Distancia Percorrida";
+    cout << "Digite a Distancia Percorrida: ";
     cin >> novo.distancia;
 
-    cout << "Digite a quantidade de combustivel consumido";
+    cout << "Digite a quantidade de combustivel consumido: ";
     cin >> novo.combustivel_consumido;
-    cin.ignore();
+
 
 
 
@@ -145,4 +142,17 @@ void limpar_tela() {
     #else
         system("clear"); // Comando para limpar a tela no Linux ou macOS
     #endif
+}
+
+int menu(){
+    int opcao;
+    cout << "escolha uma opçao:\n1.Cadastro\n2.Consultar\n3.Deletar\n4.Listar Dados\n5.Cálculo do consumo dos percursos." << endl;
+    cout << "Digita a opção: ";
+    cin >> opcao;
+    cin.ignore();
+    limpar_tela();
+    return opcao;
+}
+void listar_dados(){
+
 }
