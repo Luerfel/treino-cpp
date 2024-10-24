@@ -154,7 +154,20 @@ int menu(){
     return opcao;
 }
 void listar_dados(Descritor* descritor){
+    Elem *aux = descritor->inicio;
     for(int i = 0; i < descritor->tamanho;i++){
+    cout << "Nome: " << aux->cadastro.nome << endl;
+    cout << "Marca: " << aux->cadastro.marca << endl;
+    cout << "Modelo: " << aux->cadastro.modelo << endl;
+    cout << "Cidade de Partida: " << aux->cadastro.cidade_partida << endl;
+    cout << "Cidade de Destino: " << aux->cadastro.cidade_destino << endl;
+    cout << "Tempo Percorrido: " << aux->cadastro.tempo_percorrido << " horas" << endl;
+    cout << "Distância: " << aux->cadastro.distancia << " km" << endl;
+    cout << "Tipo de Combustível: " << aux->cadastro.tipo_combustivel << endl;
+    cout << "Combustível Consumido: " << aux->cadastro.combustivel_consumido << " litros" << endl;
+    cout << "Pressione ENTER para continuar" << endl;
+    cin.get();
+}
 
     }
-}
+
