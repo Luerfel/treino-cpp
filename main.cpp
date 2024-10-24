@@ -36,7 +36,7 @@ void cadastrar(Descritor* descritor);
 Dados ler_cadastro();
 void limpar_tela();
 int menu();
-void listar_dados();
+void listar_dados(Descritor* descritor);
 
 int main() {
 Descritor * descritor= criar_descritor();
@@ -153,6 +153,8 @@ int menu(){
     limpar_tela();
     return opcao;
 }
-void listar_dados(){
+void listar_dados(Descritor* descritor){
+    for(int i = 0; i < descritor->tamanho;i++){
 
+    }
 }
