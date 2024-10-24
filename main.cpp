@@ -173,6 +173,14 @@ void listar_dados(Descritor* descritor){
     cin.get();
     }
 
+
+
+void consultar_nome(){
+
+
+
+}
+
 void imprimir_dados(Elem *aux){
         cout << "Nome: " << aux->cadastro.nome << endl;
         cout << "Marca: " << aux->cadastro.marca << endl;
