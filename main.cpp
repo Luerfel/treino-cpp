@@ -227,9 +227,17 @@ void deletar_dados(Descritor* descritor){
         // caso seja o primeiro elemento
         if(descritor->inicio == aux){
             descritor -> inicio = aux->prox;
-            
         }
-        
+        //caso seja o ultimo elemento  
+        if(descritor->final == aux){
+            descritor ->final = aux->ant;
+        }
+        // caso esteja no meio 
+        else {
+            aux->ant->prox = aux->prox;
+            aux->prox->ant = aux->ant;
+        }
+        free(aux);
     }
     else{
         cout << "Dado não encontrado" <<endl;
