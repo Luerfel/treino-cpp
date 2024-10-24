@@ -156,7 +156,7 @@ int menu(){
     int opcao;
     cout << "escolha uma opçao:\n1.Cadastro\n2.Consultar\n3.Deletar" << endl;
     cout << "4.Listar Dados\n5.Cálculo do consumo dos percursos.\n6.Listar o menor consumo" << endl;
-    cout << "\n7.Listar o maior consumo\n8.Sair" << endl;
+    cout << "7.Listar o maior consumo\n8.Sair" << endl;
     cout << "Digita a opção: ";
     cin >> opcao;
     cin.ignore();
@@ -171,8 +171,6 @@ void listar_dados(Descritor* descritor){
 }
     pressionar_enter();
     }
-
-
 
 void consultar_nome(Descritor* descritor){
     Elem *aux = descritor->inicio;
