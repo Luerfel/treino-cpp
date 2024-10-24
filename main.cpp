@@ -217,19 +217,20 @@ void deletar_dados(Descritor* descritor){
 
     for (int i=0; i< descritor->tamanho; i++){
         if (strcmp(aux->cadastro.nome,nome_procurado) == 0){
-            
             flag = 1;
+            break;
         }
         aux = aux->prox;
     }
     
-    if(flag == 0){
-        cout << "Nome não encontrado na lista" << endl;
+    if(flag == 1){
+        limpar_tela();
+        cout << "Dado encontrando" << endl;
+        free(aux);
         
     }
     pressionar_enter();
 }
-
 void pressionar_enter(){
     cout << "Pressione ENTER para continuar" << endl;
     cin.get();
