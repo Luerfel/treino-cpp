@@ -224,11 +224,17 @@ void deletar_dados(Descritor* descritor){
     }
     
     if(flag == 1){
-        limpar_tela();
-        cout << "Dado encontrando" << endl;
-        free(aux);
+        // caso seja o primeiro elemento
+        if(descritor->inicio == aux){
+            descritor -> inicio = aux->prox;
+            
+        }
         
     }
+    else{
+        cout << "Dado não encontrado" <<endl;
+    }
+
     pressionar_enter();
 }
 void pressionar_enter(){
