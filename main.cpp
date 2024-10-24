@@ -180,9 +180,10 @@ void consultar_nome(Descritor* descritor){
     char nome_procurado[50];
 
     for (int i=0; i< descritor->tamanho; i++){
-        if (strcmp(aux->cadastro.nome,nome_procurado == 0)){
-            
+        if (strcmp(aux->cadastro.nome,nome_procurado) == 0){
+            imprimir_dados(aux);
     }
+
 
 }
 
