@@ -38,6 +38,7 @@ void limpar_tela();
 int menu();
 void listar_dados(Descritor* descritor);
 void imprimir_dados(Elem* aux);
+
 int main() {
 Descritor * descritor= criar_descritor();
 int flag = 1;// uso no controle do while
