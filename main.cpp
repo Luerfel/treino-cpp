@@ -44,11 +44,13 @@ cout << descritor->inicio;
 cout << "escolha uma opçao:\n1.Cadastro\n2.Consultar\n3.Deletar\n4.Listar Dados\n5.Cálculo do consumo dos percursos." << endl;
 cout << "Digita a opção: ";
 cin >> opcao;
+cin.ignore();
 while(flag == 1){
     switch (opcao){
         case 1:
             limpar_tela();
             cadastrar(descritor);
+            cout << descritor->inicio->cadastro.nome;
             break;
         case 2:
             cout << "ola mundo" <<endl;
@@ -117,17 +119,21 @@ Dados ler_cadastro(){
     cout << "digite a Cidade de Destino";
     cin.getline(novo.cidade_destino,50);
 
+    cout << "Digite o tipo de combustivel";
+    cin.getline(novo.tipo_combustivel,50);
+    cin.ignore();
     cout << "Digite o Tempo Percorrido: ";
     cin >> novo.tempo_percorrido;
 
     cout << "Digite a Distancia Percorrida";
     cin >> novo.distancia;
 
-    cout << "Digite o tipo de combustivel";
-    cin.getline(novo.tipo_combustivel,50);
-
     cout << "Digite a quantidade de combustivel consumido";
     cin >> novo.combustivel_consumido;
+    cin.ignore();
+
+
+
 
     return novo;
 }
