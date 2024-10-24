@@ -39,6 +39,11 @@ int menu();
 void listar_dados(Descritor* descritor);
 void imprimir_dados(Elem* aux);
 void pressionar_enter();
+void deletar_dados(Descritor* descritor);
+
+
+
+
 int main() {
 Descritor * descritor= criar_descritor();
 int flag = 1;// uso no controle do while
@@ -171,10 +176,11 @@ void listar_dados(Descritor* descritor){
 }
     pressionar_enter();
     }
-
 void consultar_nome(Descritor* descritor){
     Elem *aux = descritor->inicio;
     char nome_procurado[50];
+    cout << "Digite o nome que você procura" << endl;
+    cin.getline(nome_procurado,50);
     int flag = 0; // para verificar se tem algum controle
     for (int i=0; i< descritor->tamanho; i++){
         if (strcmp(aux->cadastro.nome,nome_procurado) == 0){
@@ -198,6 +204,11 @@ void imprimir_dados(Elem *aux){
         cout << "Tipo de Combustível: " << aux->cadastro.tipo_combustivel << endl;
         cout << "Combustível Consumido: " << aux->cadastro.combustivel_consumido << " litros" << endl;
         cout << "\n" << endl;
+}
+
+void deletar_dados(Descritor* descritor){
+    Elem *aux = descritor->inicio;
+
 }
 void pressionar_enter(){
     cout << "Pressione ENTER para continuar" << endl;
