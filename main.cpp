@@ -35,19 +35,24 @@ Descritor* criar_descritor();
 void cadastrar(Descritor* descritor);
 Dados ler_cadastro();
 void limpar_tela();
+int menu();
+void listar_dados(Descritor* descritor);
+void imprimir_dados(Elem* aux);
+void pressionar_enter();
+void deletar_dados(Descritor* descritor);
+
+
+
 
 int main() {
 Descritor * descritor= criar_descritor();
-int opcao;
 int flag = 1;// uso no controle do while
-cout << descritor->inicio;
-cout << "escolha uma opçao:\n1.Cadastro\n2.Consultar\n3.Deletar\n4.Listar Dados\n5.Cálculo do consumo dos percursos." << endl;
-cout << "Digita a opção: ";
-cin >> opcao;
+
 while(flag == 1){
+    limpar_tela();
+    int opcao = menu();
     switch (opcao){
         case 1:
-            limpar_tela();
             cadastrar(descritor);
             break;
         case 2:
@@ -57,12 +62,18 @@ while(flag == 1){
             cout << "Ola mundo zé" <<endl;
             break;
         case 4:
-            cout << "sexo" <<endl;
+            listar_dados(descritor);
             break;
         case 5:
             break;
+        case 6:
+            break;
+        case 7:
+            break;
+        case 8:
+            break;
         default:
-        cout << "Opção invalida zé";
+            cout << "Opção invalida zé";
         break;
 } }
 
@@ -103,6 +114,7 @@ void cadastrar(Descritor* descritor)
 Dados ler_cadastro(){
     Dados novo;
     cout << "Digite o nome completo: ";
+
     cin.getline(novo.nome,50);
 
     cout << "Digite a Marca: ";
@@ -114,20 +126,25 @@ Dados ler_cadastro(){
     cout <<"Digite a Cidade de Partida: ";
     cin.getline(novo.cidade_partida,50);
 
-    cout << "digite a Cidade de Destino";
+    cout << "digite a Cidade de Destino: ";
     cin.getline(novo.cidade_destino,50);
+
+    cout << "Digite o tipo de combustivel: ";
+    cin.getline(novo.tipo_combustivel,50);
 
     cout << "Digite o Tempo Percorrido: ";
     cin >> novo.tempo_percorrido;
 
-    cout << "Digite a Distancia Percorrida";
+    cout << "Digite a Distancia Percorrida: ";
     cin >> novo.distancia;
 
-    cout << "Digite o tipo de combustivel";
-    cin.getline(novo.tipo_combustivel,50);
-
-    cout << "Digite a quantidade de combustivel consumido";
+    cout << "Digite a quantidade de combustivel consumido: ";
     cin >> novo.combustivel_consumido;
+
+
+
+
+
 
     return novo;
 }
@@ -138,4 +155,62 @@ void limpar_tela() {
     #else
         system("clear"); // Comando para limpar a tela no Linux ou macOS
     #endif
+}
+
+int menu(){
+    int opcao;
+    cout << "escolha uma opçao:\n1.Cadastro\n2.Consultar\n3.Deletar" << endl;
+    cout << "4.Listar Dados\n5.Cálculo do consumo dos percursos.\n6.Listar o menor consumo" << endl;
+    cout << "7.Listar o maior consumo\n8.Sair" << endl;
+    cout << "Digita a opção: ";
+    cin >> opcao;
+    cin.ignore();
+    limpar_tela();
+    return opcao;
+}
+void listar_dados(Descritor* descritor){
+    Elem *aux = descritor->inicio;
+    for(int i = 0; i < descritor->tamanho;i++){
+        cout << "Cadastro " << i+1 <<endl;
+        imprimir_dados(aux);
+}
+    pressionar_enter();
+    }
+void consultar_nome(Descritor* descritor){
+    Elem *aux = descritor->inicio;
+    char nome_procurado[50];
+    cout << "Digite o nome que você procura" << endl;
+    cin.getline(nome_procurado,50);
+    int flag = 0; // para verificar se tem algum controle
+    for (int i=0; i< descritor->tamanho; i++){
+        if (strcmp(aux->cadastro.nome,nome_procurado) == 0){
+            imprimir_dados(aux);
+            flag = 1;
+        }
+    }
+    if(flag == 1){
+        cout << "Nome não encontrado na lista" << endl;
+    }
+    pressionar_enter();
+}
+void imprimir_dados(Elem *aux){
+        cout << "Nome: " << aux->cadastro.nome << endl;
+        cout << "Marca: " << aux->cadastro.marca << endl;
+        cout << "Modelo: " << aux->cadastro.modelo << endl;
+        cout << "Cidade de Partida: " << aux->cadastro.cidade_partida << endl;
+        cout << "Cidade de Destino: " << aux->cadastro.cidade_destino << endl;
+        cout << "Tempo Percorrido: " << aux->cadastro.tempo_percorrido << " horas" << endl;
+        cout << "Distância: " << aux->cadastro.distancia << " km" << endl;
+        cout << "Tipo de Combustível: " << aux->cadastro.tipo_combustivel << endl;
+        cout << "Combustível Consumido: " << aux->cadastro.combustivel_consumido << " litros" << endl;
+        cout << "\n" << endl;
+}
+
+void deletar_dados(Descritor* descritor){
+    Elem *aux = descritor->inicio;
+
+}
+void pressionar_enter(){
+    cout << "Pressione ENTER para continuar" << endl;
+    cin.get();
 }
