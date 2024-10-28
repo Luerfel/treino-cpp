@@ -65,6 +65,9 @@ while(flag == 1){
         cin >> opcao2;
             listar_dados(descritor,opcao2);
             break;
+        case 5:
+            flag =0;
+            break;
         default:
             cout << "Opção invalida zé";
         break;
@@ -180,9 +183,7 @@ void limpar_tela() {
 
 int menu(){
     int opcao;
-    cout << "escolha uma opçao:\n1.Cadastro\n2.Consultar\n3.Deletar" << endl;
-    cout << "4.Listar Dados\n5.Cálculo do consumo dos percursos.\n6.Listar o menor consumo" << endl;
-    cout << "7.Listar o maior consumo\n8.Sair" << endl;
+    cout << "escolha uma opçao:\n1.Cadastro\n2.Consultar\n3.Deletar\n4.Listar Dados\n5-Sair" << endl;
     cout << "Digita a opção: ";
     cin >> opcao;
     cin.ignore();
