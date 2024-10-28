@@ -37,7 +37,7 @@ void cadastrar(Descritor* descritor);
 Dados ler_cadastro();
 void limpar_tela();
 int menu();
-void listar_dados(Descritor* descritor);
+void listar_dados(Descritor* descritor, int opcao2);
 void imprimir_dados(Elem* aux);
 void pressionar_enter();
 void deletar_dados(Descritor* descritor);
@@ -47,10 +47,10 @@ void inserir_lista(Descritor * Descritor,Elem * novo,Elem * aux);
 int main() {
 Descritor * descritor= criar_descritor();
 int flag = 1;// uso no controle do while
-
+int opcao,opcao2;
 while(flag == 1){
     limpar_tela();
-    int opcao = menu();
+    opcao = menu();
     switch (opcao){
         case 1:
             cadastrar(descritor);
@@ -62,7 +62,8 @@ while(flag == 1){
             deletar_dados(descritor);
             break;
         case 4:
-            listar_dados(descritor);
+        cin >> opcao2;
+            listar_dados(descritor,opcao2);
             break;
         default:
             cout << "Opção invalida zé";
@@ -189,14 +190,25 @@ int menu(){
     return opcao;
 }
 void listar_dados(Descritor* descritor, int opcao2){
-        Elem *aux = descritor->inicio;
+    Elem *aux;
+    int i = 1;
     if (opcao2 == 0){
-
+        aux =descritor->inicio;
     }
-    for(int i = 0; i < descritor->tamanho;i++){
-        cout << "Cadastro " << i+1 <<endl;
+    else
+    {
+        aux = descritor->final;
+    }
+    while(aux!= NULL){
+        cout << "Cadastro " << i <<endl;
         imprimir_dados(aux);
+        if (opcao2 == 0){
         aux = aux -> prox;
+        }
+        else {
+            aux = aux ->ant;
+        }
+        i++;
 }
     pressionar_enter();
     }
