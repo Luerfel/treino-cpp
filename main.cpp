@@ -238,12 +238,12 @@ void deletar_dados(Descritor* descritor){
             aux->prox->ant = aux->ant;
         }
         free(aux);
-        cout << "Dados deletados com sucesso."
+        cout << "Dados deletados com sucesso.";
     }
     else{
-        cout << "Dado não encontrado" <<endl;
+        cout << "Dado não encontrado" <<endl; 
     }
-
+    
     pressionar_enter();
 }
 void pressionar_enter(){
