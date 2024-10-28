@@ -41,7 +41,6 @@ void listar_dados(Descritor* descritor);
 void imprimir_dados(Elem* aux);
 void pressionar_enter();
 void deletar_dados(Descritor* descritor);
-void calculo_consumo(Descritor* descritor);
 void inserir_lista(Descritor * Descritor,Elem * novo,Elem * aux);
 
 
