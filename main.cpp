@@ -65,14 +65,6 @@ while(flag == 1){
         case 4:
             listar_dados(descritor);
             break;
-        case 5:
-            break;
-        case 6:
-            break;
-        case 7:
-            break;
-        case 8:
-            break;
         default:
             cout << "Opção invalida zé";
         break;
@@ -107,15 +99,12 @@ void cadastrar(Descritor* descritor)
     // caso a lista não tiver vazia vamos dar um insert sort
     else{
         Elem *aux = descritor->inicio;
-        for(int i = 0; i<descritor->tamanho; i++){
-            if(aux->cadastro.consumo_km > novo->cadastro.consumo_km){
-                inserir_lista(descritor,novo,aux);
-                break;
-            }
+        while(aux != NULL && novo->cadastro.consumo_km >= aux->cadastro.consumo_km) {
             aux = aux->prox;
-        }  
-
+        }
+        inserir_lista(descritor,novo,aux);
     }
+
     // aumenta o tamanho da lista
     (descritor->tamanho)++; 
 }
@@ -124,14 +113,22 @@ void inserir_lista(Descritor * descritor,Elem * novo,Elem * aux){
 
     // caso seja o primeiro elemento
     if(descritor->inicio == aux){
-        //caso tbm seja o ultimo elemento
-        if()
         aux ->ant = novo;
         novo ->prox = aux;
+        descritor->inicio = novo;
     }
-    //caso seja o ultimo elemento
-    else if(descritor->final == aux){
-        aux -> ant
+    //caso seja uma inserção no ultimo elemento
+    else if(aux == NULL){
+        aux->prox = novo;
+        novo->ant = aux;
+        descritor->final = novo;
+    }
+    // inserção no meio
+    else {
+        aux->ant->prox = novo;
+        novo -> ant = aux->ant;
+        aux->ant = novo;
+        novo -> prox = aux;
     }
 }
 Dados ler_cadastro(){
