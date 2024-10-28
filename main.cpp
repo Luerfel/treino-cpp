@@ -15,6 +15,7 @@ typedef struct dados {
     float distancia;
     char tipo_combustivel[50];
     float combustivel_consumido;
+    float consumo_km;
 } Dados;
 
 typedef struct elemento {
@@ -96,14 +97,16 @@ void cadastrar(Descritor* descritor)
     novo->cadastro = ler_cadastro();
     novo->ant = NULL;
     novo->prox = NULL;
-
+    
     //caso a lista estiver vazia
     if(descritor->inicio == NULL){
         descritor ->inicio = novo;
         descritor ->final = novo;
     }
-    // caso a lista não tiver vazia insere no final.
+    // caso a lista não tiver vazia vamos dar um insert sort
     else{
+        Elem *aux = descritor->inicio;
+        if()      
         novo->ant = descritor->final;
         descritor->final->prox = novo;
         descritor->final = novo;
@@ -141,6 +144,7 @@ Dados ler_cadastro(){
     cout << "Digite a quantidade de combustivel consumido: ";
     cin >> novo.combustivel_consumido;
 
+    novo.consumo_km = novo.distancia/novo.combustivel_consumido;
 
 
 
@@ -257,13 +261,4 @@ void deletar_dados(Descritor* descritor){
 void pressionar_enter(){
     cout << "Pressione ENTER para continuar" << endl;
     cin.get();
-}
-void calculo_consumo(Descritor* descritor){
-    if(descritor->inicio == NULL){
-        cout << "Lista vazia";
-        pressionar_enter();
-        return;
-    }
-    
-
 }
