@@ -42,7 +42,7 @@ void imprimir_dados(Elem* aux);
 void pressionar_enter();
 void deletar_dados(Descritor* descritor);
 void inserir_lista(Descritor * Descritor,Elem * novo,Elem * aux);
-
+void consultar_nome(Descritor* descritor);
 
 int main() {
 Descritor * descritor= criar_descritor();
@@ -62,8 +62,10 @@ while(flag == 1){
             deletar_dados(descritor);
             break;
         case 4:
-            cout << "0 - Menor consumo Km/litro\n 1- Maior consumo Km/litro" <<endl;
+            cout << "0-Menor consumo Km/litro\n1-Maior consumo Km/litro" <<endl;
             cin >> opcao2;
+            cin.get();
+            limpar_tela();
             listar_dados(descritor,opcao2);
             break;
         case 5:
@@ -123,8 +125,8 @@ void inserir_lista(Descritor * descritor,Elem * novo,Elem * aux){
     }
     //caso seja uma inserção no ultimo elemento
     else if(aux == NULL){
-        aux->prox = novo;
-        novo->ant = aux;
+        novo->ant = descritor->final;
+        descritor->final->prox = novo;
         descritor->final = novo;
     }
     // inserção no meio
