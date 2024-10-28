@@ -59,7 +59,7 @@ while(flag == 1){
             cout << "ola mundo" <<endl;
             break;
         case 3:
-            cout << "Ola mundo zé" <<endl;
+            deletar_dados(descritor);
             break;
         case 4:
             listar_dados(descritor);
@@ -224,6 +224,11 @@ void deletar_dados(Descritor* descritor){
     }
     
     if(flag == 1){
+                // caso seja o único elemento
+        if (descritor->inicio == aux && descritor->final == aux) {
+            descritor->inicio = nullptr;
+            descritor->final = nullptr;
+        }
         // caso seja o primeiro elemento
         if(descritor->inicio == aux){
             descritor -> inicio = aux->prox;
@@ -239,9 +244,12 @@ void deletar_dados(Descritor* descritor){
         }
         free(aux);
         cout << "Dados deletados com sucesso.";
+
     }
     else{
         cout << "Dado não encontrado" <<endl; 
+
+
     }
     
     pressionar_enter();
