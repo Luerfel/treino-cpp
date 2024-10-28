@@ -15,6 +15,7 @@ typedef struct dados {
     float distancia;
     char tipo_combustivel[50];
     float combustivel_consumido;
+    float consumo_km;
 } Dados;
 
 typedef struct elemento {
@@ -36,41 +37,39 @@ void cadastrar(Descritor* descritor);
 Dados ler_cadastro();
 void limpar_tela();
 int menu();
-void listar_dados(Descritor* descritor);
+void listar_dados(Descritor* descritor, int opcao2);
 void imprimir_dados(Elem* aux);
 void pressionar_enter();
 void deletar_dados(Descritor* descritor);
-
-
-
+void inserir_lista(Descritor * Descritor,Elem * novo,Elem * aux);
+void consultar_nome(Descritor* descritor);
 
 int main() {
 Descritor * descritor= criar_descritor();
 int flag = 1;// uso no controle do while
-
+int opcao,opcao2;
 while(flag == 1){
     limpar_tela();
-    int opcao = menu();
+    opcao = menu();
     switch (opcao){
         case 1:
             cadastrar(descritor);
             break;
         case 2:
-            cout << "ola mundo" <<endl;
+            consultar_nome(descritor);
             break;
         case 3:
-            cout << "Ola mundo zé" <<endl;
+            deletar_dados(descritor);
             break;
         case 4:
-            listar_dados(descritor);
+            cout << "0-Menor consumo Km/litro\n1-Maior consumo Km/litro" <<endl;
+            cin >> opcao2;
+            cin.get();
+            limpar_tela();
+            listar_dados(descritor,opcao2);
             break;
         case 5:
-            break;
-        case 6:
-            break;
-        case 7:
-            break;
-        case 8:
+            flag =0;
             break;
         default:
             cout << "Opção invalida zé";
@@ -96,20 +95,47 @@ void cadastrar(Descritor* descritor)
     novo->cadastro = ler_cadastro();
     novo->ant = NULL;
     novo->prox = NULL;
-
+    
     //caso a lista estiver vazia
     if(descritor->inicio == NULL){
         descritor ->inicio = novo;
         descritor ->final = novo;
     }
-    // caso a lista não tiver vazia insere no final.
+
+    // caso a lista não tiver vazia vamos dar um insert sort
     else{
+        Elem *aux = descritor->inicio;
+        while(aux != NULL && novo->cadastro.consumo_km >= aux->cadastro.consumo_km) {
+            aux = aux->prox;
+        }
+        inserir_lista(descritor,novo,aux);
+    }
+
+    // aumenta o tamanho da lista
+    (descritor->tamanho)++; 
+}
+
+void inserir_lista(Descritor * descritor,Elem * novo,Elem * aux){
+
+    // caso seja o primeiro elemento
+    if(descritor->inicio == aux){
+        aux ->ant = novo;
+        novo ->prox = aux;
+        descritor->inicio = novo;
+    }
+    //caso seja uma inserção no ultimo elemento
+    else if(aux == NULL){
         novo->ant = descritor->final;
         descritor->final->prox = novo;
         descritor->final = novo;
     }
-    // aumenta o tamanho da lista
-    (descritor->tamanho)++;
+    // inserção no meio
+    else {
+        aux->ant->prox = novo;
+        novo -> ant = aux->ant;
+        aux->ant = novo;
+        novo -> prox = aux;
+    }
 }
 Dados ler_cadastro(){
     Dados novo;
@@ -141,6 +167,7 @@ Dados ler_cadastro(){
     cout << "Digite a quantidade de combustivel consumido: ";
     cin >> novo.combustivel_consumido;
 
+    novo.consumo_km = novo.distancia/novo.combustivel_consumido;
 
 
 
@@ -159,21 +186,33 @@ void limpar_tela() {
 
 int menu(){
     int opcao;
-    cout << "escolha uma opçao:\n1.Cadastro\n2.Consultar\n3.Deletar" << endl;
-    cout << "4.Listar Dados\n5.Cálculo do consumo dos percursos.\n6.Listar o menor consumo" << endl;
-    cout << "7.Listar o maior consumo\n8.Sair" << endl;
+    cout << "escolha uma opçao:\n1.Cadastro\n2.Consultar\n3.Deletar\n4.Listar Dados\n5-Sair" << endl;
     cout << "Digita a opção: ";
     cin >> opcao;
     cin.ignore();
     limpar_tela();
     return opcao;
 }
-void listar_dados(Descritor* descritor){
-    Elem *aux = descritor->inicio;
-    for(int i = 0; i < descritor->tamanho;i++){
-        cout << "Cadastro " << i+1 <<endl;
+void listar_dados(Descritor* descritor, int opcao2){
+    Elem *aux;
+    int i = 1;
+    if (opcao2 == 0){
+        aux =descritor->inicio;
+    }
+    else
+    {
+        aux = descritor->final;
+    }
+    while(aux!= NULL){
+        cout << "Cadastro " << i <<endl;
         imprimir_dados(aux);
+        if (opcao2 == 0){
         aux = aux -> prox;
+        }
+        else {
+            aux = aux ->ant;
+        }
+        i++;
 }
     pressionar_enter();
     }
@@ -224,6 +263,11 @@ void deletar_dados(Descritor* descritor){
     }
     
     if(flag == 1){
+                // caso seja o único elemento
+        if (descritor->inicio == aux && descritor->final == aux) {
+            descritor->inicio = nullptr;
+            descritor->final = nullptr;
+        }
         // caso seja o primeiro elemento
         if(descritor->inicio == aux){
             descritor -> inicio = aux->prox;
@@ -238,12 +282,15 @@ void deletar_dados(Descritor* descritor){
             aux->prox->ant = aux->ant;
         }
         free(aux);
-        cout << "Dados deletados com sucesso."
+        cout << "Dados deletados com sucesso.";
+
     }
     else{
-        cout << "Dado não encontrado" <<endl;
-    }
+        cout << "Dado não encontrado" <<endl; 
 
+
+    }
+    
     pressionar_enter();
 }
 void pressionar_enter(){
