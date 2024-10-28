@@ -40,7 +40,7 @@ void listar_dados(Descritor* descritor);
 void imprimir_dados(Elem* aux);
 void pressionar_enter();
 void deletar_dados(Descritor* descritor);
-
+void calculo_consumo(Descritor* descritor);
 
 
 
@@ -56,7 +56,7 @@ while(flag == 1){
             cadastrar(descritor);
             break;
         case 2:
-            cout << "ola mundo" <<endl;
+            consultar_nome(descritor);
             break;
         case 3:
             deletar_dados(descritor);
@@ -257,4 +257,13 @@ void deletar_dados(Descritor* descritor){
 void pressionar_enter(){
     cout << "Pressione ENTER para continuar" << endl;
     cin.get();
+}
+void calculo_consumo(Descritor* descritor){
+    if(descritor->inicio == NULL){
+        cout << "Lista vazia";
+        pressionar_enter();
+        return;
+    }
+    
+
 }
