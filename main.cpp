@@ -62,7 +62,8 @@ while(flag == 1){
             deletar_dados(descritor);
             break;
         case 4:
-        cin >> opcao2;
+            cout << "0 - Menor consumo Km/litro\n 1- Maior consumo Km/litro" <<endl;
+            cin >> opcao2;
             listar_dados(descritor,opcao2);
             break;
         case 5:
