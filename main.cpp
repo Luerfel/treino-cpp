@@ -188,8 +188,11 @@ int menu(){
     limpar_tela();
     return opcao;
 }
-void listar_dados(Descritor* descritor){
-    Elem *aux = descritor->inicio;
+void listar_dados(Descritor* descritor, int opcao2){
+        Elem *aux = descritor->inicio;
+    if (opcao2 == 0){
+
+    }
     for(int i = 0; i < descritor->tamanho;i++){
         cout << "Cadastro " << i+1 <<endl;
         imprimir_dados(aux);
