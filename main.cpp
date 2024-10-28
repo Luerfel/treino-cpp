@@ -42,7 +42,7 @@ void imprimir_dados(Elem* aux);
 void pressionar_enter();
 void deletar_dados(Descritor* descritor);
 void calculo_consumo(Descritor* descritor);
-
+void inserir_lista(Descritor * Descritor,Elem * novo,Elem * aux);
 
 
 int main() {
@@ -103,16 +103,36 @@ void cadastrar(Descritor* descritor)
         descritor ->inicio = novo;
         descritor ->final = novo;
     }
+
     // caso a lista não tiver vazia vamos dar um insert sort
     else{
         Elem *aux = descritor->inicio;
-        if()      
-        novo->ant = descritor->final;
-        descritor->final->prox = novo;
-        descritor->final = novo;
+        for(int i = 0; i<descritor->tamanho; i++){
+            if(aux->cadastro.consumo_km > novo->cadastro.consumo_km){
+                inserir_lista(descritor,novo,aux);
+                break;
+            }
+            aux = aux->prox;
+        }  
+
     }
     // aumenta o tamanho da lista
-    (descritor->tamanho)++;
+    (descritor->tamanho)++; 
+}
+
+void inserir_lista(Descritor * descritor,Elem * novo,Elem * aux){
+
+    // caso seja o primeiro elemento
+    if(descritor->inicio == aux){
+        //caso tbm seja o ultimo elemento
+        if()
+        aux ->ant = novo;
+        novo ->prox = aux;
+    }
+    //caso seja o ultimo elemento
+    else if(descritor->final == aux){
+        aux -> ant
+    }
 }
 Dados ler_cadastro(){
     Dados novo;
