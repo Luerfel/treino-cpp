@@ -274,6 +274,7 @@ void deletar_dados(Descritor* descritor){
         }
         //caso seja o ultimo elemento  
         if(descritor->final == aux){
+            descritor->final->ant->prox = NULL;
             descritor ->final = aux->ant;
         }
         // caso esteja no meio 
