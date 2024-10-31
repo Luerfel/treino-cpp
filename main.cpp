@@ -117,7 +117,7 @@ void cadastrar(Descritor* descritor)
 
 void inserir_lista(Descritor * descritor,Elem * novo,Elem * aux){
 
-    // caso seja o primeiro elemento
+    // caso seja o primeiro elemento oo/oooooooooooo
     if(descritor->inicio == aux){
         aux ->ant = novo;
         novo ->prox = aux;
