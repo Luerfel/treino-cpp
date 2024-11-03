@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// o último elemento inserido é o primeiro a ser removido.
 int main(){
 
 
