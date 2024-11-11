@@ -42,41 +42,41 @@ Descritor* criar(void) {
 Elem *buscarID(Elem* e, int ID)
 {
     Elem* result;
-    result = (Elem*)malloc(sizeof(Elem));
-    //INICIALIZANDO VALOR DE RETORNO NULL
-    result->cadastro.ID = -1;
-    strcpy_s(result->cadastro.Sintoma, "");
-    result->proxFalso = NULL;
-    result->proxVerdade = NULL;
 
-    if (e->cadastro.ID == ID)
-        return e;
+    // INICIALIZANDO VALOR DE RETORNO NULL
+    if (e == NULL) {
+        return NULL; // Se o nó atual é NULL, retorna NULL.
+    }
 
-    Elem* vd=e->proxVerdade;
-    if (vd!= NULL)
-    {
-        if (vd->cadastro.ID == ID)
-            return vd;
-        else
-        {
-            result = buscarID(vd, ID);
-            if (result->cadastro.ID == ID)
+    if (e->cadastro.ID == ID) {
+        return e; // Se encontrou o ID, retorna o nó atual.
+    }
+
+    Elem* vd = e->proxVerdade;
+    if (vd != NULL) {
+        if (vd->cadastro.ID == ID) {
+            return vd; // Se o próximo "verdadeiro" tem o ID, retorna ele.
+        } else {
+            result = buscarID(vd, ID); // Continua buscando na subárvore "verdadeira".
+            if (result != NULL && result->cadastro.ID == ID) {
                 return result;
+            }
         }
     }
-    Elem* fls= e->proxFalso;
-    if (fls!=NULL)
-    {
-        if (fls->cadastro.ID == ID)
-            return fls;
-        else
-        {
-            result = buscarID(fls, ID);
-            if (result->cadastro.ID == ID)
+
+    Elem* fls = e->proxFalso;
+    if (fls != NULL) {
+        if (fls->cadastro.ID == ID) {
+            return fls; // Se o próximo "falso" tem o ID, retorna ele.
+        } else {
+            result = buscarID(fls, ID); // Continua buscando na subárvore "falsa".
+            if (result != NULL && result->cadastro.ID == ID) {
                 return result;
+            }
         }
     }
-    return result;
+
+    return NULL; // Caso não encontre, retorna NULL.
 }
 
 

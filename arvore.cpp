@@ -1,20 +1,20 @@
 #include <iostream>
 #include <string>
 
-struct dados
+using namespace std;
+typedef struct dados
 {
     char Sintoma[50];
     int ID;
-};
+}Dados;
 
-struct elemento {
+typedef struct elem {
 
-    dados cadastro;
-    struct elemento* proxVerdade;
-    struct elemento* proxFalso;
-};
+    Dados cadastro;
+    Elem* proxVerdade;
+    Elem* proxFalso;
+}Elem;
 
-typedef struct elemento Elem;
 
 // DEFINIR O DESCRITOS DA LISTA 
 struct Descritor {
@@ -24,9 +24,50 @@ struct Descritor {
     Elem* final;
 };
 
-Descritor* arvore;
 
-//CRIAR A LISTA
+//Prototipo de funções
+Descritor* criar(); 
+int menu();
+
+
+
+int main() {
+Descritor * descritor= criar();
+int opcao,opcao2;
+while(true){
+    opcao = menu();
+    switch (opcao){
+        case 1:
+
+            break;
+        case 2:
+
+            break;
+        case 3:
+
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        default:
+            cout << "Opção invalida zé";
+        break;
+} }
+
+return 1;
+
+}
+
+int menu(){
+    int opcao;
+    cout << "escolha uma opçao:\n1.Cadastro\n2.Consultar\n3.Deletar\n4.Listar Dados\n5-Sair" << endl;
+    cout << "Digita a opção: ";
+    cin >> opcao;
+    cin.ignore();
+    return opcao;
+}
+
 Descritor* criar(void) {
 
     Descritor* descritor;
