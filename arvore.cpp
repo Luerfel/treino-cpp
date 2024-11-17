@@ -25,7 +25,7 @@ struct Descritor {
 };
 
 
-//Prototipo de funções
+//Prototipo de funçõess
 Descritor* criar(); 
 int menu();
 
