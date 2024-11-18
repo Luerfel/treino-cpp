@@ -22,7 +22,7 @@ struct Descritor {
 //Prototipo de funções
 Descritor* criar(); 
 int menu();
-void inserir_arvore(Descritor * desc, int num);
+void inserir_arvore(Descritor * desc, int data);
 
 int main() {
 Descritor * descritor= criar();
@@ -70,6 +70,12 @@ Descritor* criar(void) {
 
     return descritor; 
 }
-void inserir_arvore(Descritor * desc, int num){
+void inserir_arvore(Elem* node, int data){
 
+if (node == NULL){
+    Elem* novo = (Elem*)malloc(sizeof(Elem*));
+    novo->prox_dir = NULL;
+    novo->prox_esq = NULL;
+    novo->num = data;
+}
 }
