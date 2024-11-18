@@ -71,9 +71,8 @@ Descritor* criar(void) {
 
     Descritor* descritor;
     descritor = (Descritor*)malloc(sizeof(Descritor));
-    descritor->final = NULL;
     descritor->inicio = NULL;
-    descritor->tamanho = -1;
+    descritor->tamanho = 0;
 
-    return descritor;
+    return descritor; 
 }
