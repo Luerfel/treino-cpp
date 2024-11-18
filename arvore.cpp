@@ -11,8 +11,8 @@ typedef struct dados
 typedef struct elem {
 
     Dados cadastro;
-    Elem* proxVerdade;
-    Elem* proxFalso;
+    Elem* prox_dir;
+    Elem* prox_esq;
 }Elem;
 
 
@@ -21,7 +21,6 @@ struct Descritor {
 
     Elem* inicio;
     int tamanho;
-    Elem* final;
 };
 
 
