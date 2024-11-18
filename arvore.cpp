@@ -2,15 +2,10 @@
 #include <string>
 
 using namespace std;
-typedef struct dados
-{
-    char Sintoma[50];
-    int ID;
-}Dados;
 
 typedef struct elem {
 
-    Dados cadastro;
+    int num;
     Elem* prox_dir;
     Elem* prox_esq;
 }Elem;
@@ -27,8 +22,7 @@ struct Descritor {
 //Prototipo de funções
 Descritor* criar(); 
 int menu();
-
-
+void inserir_arvore(Descritor * desc, int num);
 
 int main() {
 Descritor * descritor= criar();
@@ -75,4 +69,7 @@ Descritor* criar(void) {
     descritor->tamanho = 0;
 
     return descritor; 
+}
+void inserir_arvore(Descritor * desc, int num){
+
 }
