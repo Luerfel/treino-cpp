@@ -10,19 +10,8 @@ typedef struct elem {
     Elem* prox_esq;
 }Elem;
 
-
-// DEFINIR O DESCRITOS DA LISTA 
-struct Descritor {
-
-    Elem* inicio;
-    int tamanho;
-};
-
-
-//Prototipo de funções
-Descritor* criar(); 
 int menu();
-void inserir_arvore(Descritor * desc, int data);
+void inserir_arvore(Elem * node, int data);
 
 int main() {
 Descritor * descritor= criar();
@@ -61,15 +50,7 @@ int menu(){
     return opcao;
 }
 
-Descritor* criar(void) {
 
-    Descritor* descritor;
-    descritor = (Descritor*)malloc(sizeof(Descritor));
-    descritor->inicio = NULL;
-    descritor->tamanho = 0;
-
-    return descritor; 
-}
 void inserir_arvore(Elem* node, int data){
 
 if (node == NULL){
