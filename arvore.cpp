@@ -2,34 +2,16 @@
 #include <string>
 
 using namespace std;
-typedef struct dados
-{
-    char Sintoma[50];
-    int ID;
-}Dados;
 
 typedef struct elem {
 
-    Dados cadastro;
-    Elem* proxVerdade;
-    Elem* proxFalso;
+    int num;
+    Elem* prox_dir;
+    Elem* prox_esq;
 }Elem;
 
-
-// DEFINIR O DESCRITOS DA LISTA 
-struct Descritor {
-
-    Elem* inicio;
-    int tamanho;
-    Elem* final;
-};
-
-
-//Prototipo de funções
-Descritor* criar(); 
 int menu();
-
-
+void inserir_arvore(Elem * node, int data);
 
 int main() {
 Descritor * descritor= criar();
@@ -68,13 +50,13 @@ int menu(){
     return opcao;
 }
 
-Descritor* criar(void) {
 
-    Descritor* descritor;
-    descritor = (Descritor*)malloc(sizeof(Descritor));
-    descritor->final = NULL;
-    descritor->inicio = NULL;
-    descritor->tamanho = -1;
+void inserir_arvore(Elem* node, int data){
 
-    return descritor;
+if (node == NULL){
+    Elem* novo = (Elem*)malloc(sizeof(Elem*));
+    novo->prox_dir = NULL;
+    novo->prox_esq = NULL;
+    novo->num = data;
+}
 }
